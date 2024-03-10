@@ -23,7 +23,9 @@ const Blog = ({ blog, updateLikes, deleteBlog }) => {
 
   const deleteHandler = (event) => {
     event.preventDefault
-    deleteBlog(blog.id)
+    if (window.confirm('Do you really want to delete this post?')) {
+      deleteBlog(blog.id)
+    }
   }
 
   const blogStyle = {
@@ -35,12 +37,12 @@ const Blog = ({ blog, updateLikes, deleteBlog }) => {
   }
 
   return (
-    <div style={blogStyle}>
+    <div style={blogStyle} className="blog">
       <div>
         {blog.title} by {blog.author}
         <button onClick={toggleVisibility}>view</button>
       </div>
-      <div style={showWhenVisible}>
+      <div style={showWhenVisible} className="togglableContent">
         <div>{blog.url}</div>
         <div>likes {blog.likes}</div>
         <div>{blog.user.name}</div>
