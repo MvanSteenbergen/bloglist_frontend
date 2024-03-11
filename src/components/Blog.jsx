@@ -38,14 +38,14 @@ const Blog = ({ blog, updateLikes, deleteBlog }) => {
 
   return (
     <div style={blogStyle} className="blog">
-      <div>
+      <div data-testid="titleandauthor">
         {blog.title} by {blog.author}
         <button onClick={toggleVisibility}>view</button>
       </div>
       <div style={showWhenVisible} className="togglableContent">
-        <div>{blog.url}</div>
-        <div>likes {blog.likes}</div>
-        <div>{blog.user.name}</div>
+        <div data-testid="url2">{blog.url}</div>
+        <div id = "likes" data-testid="likes">likes {blog.likes}</div>
+        <div data-testid="name">{blog.user.name}</div>
         <button onClick={like}>like</button>
         <button onClick={deleteHandler}>delete</button>
       </div>

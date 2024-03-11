@@ -14,7 +14,7 @@ test('<BlogForm /> updates parent state and calls createBlog', async () => {
   const author = container.querySelector('input[name="author"]')
   const url = container.querySelector('input[name="url"]')
 
-  const sendButton = screen.getByText('login')
+  const sendButton = screen.getByText('add blog')
 
   await user.type(title, 'Testing a title')
   await user.type(author, 'Testing the author')
