@@ -105,7 +105,7 @@ const App = () => {
         return b.likes - a.likes
       })
       setBlogs(blogs)
-    }catch (exception) {
+    } catch (exception) {
       setMessagetype('error')
       setMessage(`Failed to update likes. ${exception}`)
       setTimeout(() => {
@@ -148,12 +148,12 @@ const App = () => {
   const blogForm = () => {
     return (
       <div>
-        <p> {user.name} has logged in. <button onClick={handleLogout}>Logout</button></p>
+        <p> {user.name} has logged in. <button data-testid="logout" onClick={handleLogout}>Logout</button></p>
         <Togglable buttonLabel = "New blog" ref={blogFormRef}>
           <BlogForm createBlog={addBlog}/>
         </Togglable>
         {blogs.map(blog =>
-          <Blog key={blog.id} blog={blog} updateLikes={updateLikes} deleteBlog={deleteBlog}/>
+          <Blog key={blog.id} blog={blog} updateLikes={updateLikes} deleteBlog={deleteBlog} user={user}/>
         )}
         <p>
         </p>
